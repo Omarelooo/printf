@@ -15,10 +15,10 @@
 #define PARAMS_INIT (0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 #define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	1
+#define CONVERT_UNSIGNED	2
 
 /**
- * struct paramaters - paramaters struct
+ * struct parameters - paramaters struct
  *
  * @unsign: flag if unsigned value
  *
@@ -35,7 +35,6 @@
  * @l_modifier: on if h_modifier is specified
  *
  */
-
 typedef struct parameters
 {
 	unsigned int unsign		:1;
@@ -51,10 +50,10 @@ typedef struct parameters
 
 	unsigned int h_modifier		:1;
 	unsigned int l_modifier		:1;
-} params_t
+} params_t;
 
 /**
- * struct specifier - struct token
+ * struct specifier - Struct token
  *
  * @specifier: format token
  * @f: The function associated
@@ -96,13 +95,13 @@ int print_binary(va_list ap, params_t *params);
 int print_octal(va_list ap, params_t *params);
 
 /* simple_printers.c module */
-int print_from_to(char *start, char *stop,char *except);
+int print_from_to(char *start, char *stop, char *except);
 int print_rev(va_list ap, params_t *params);
 int Print_rot13(va_list ap, params_t *params);
 
 /* print_number.c module */
-int -isdigit(int c);
-int -strlen(char *s);
+int _isdigit(int c);
+int _strlen(char *s);
 int print_number(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
@@ -114,6 +113,6 @@ void init_params(params_t *params, va_list ap);
 char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _printf.c module */
-int _printf.c(const char *format, ...);
+int _printf(const char *format, ...);
 
-#endif 
+#endif

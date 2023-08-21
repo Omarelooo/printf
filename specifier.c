@@ -6,8 +6,7 @@
  *
  * Return: the number of bytes printed
  */
-
-int (*get_specifier(char *s))(va_list ap, params *params)
+int (*get_specifier(char *s)) (va_list ap, params_t *params)
 {
 	specifier_t specifier[] = {
 		{"c", print_char},
@@ -53,7 +52,8 @@ int get_print_func(char *s, va_list ap, params_t *params)
 	int (*f)(va_list, params_t *) = get_specifier(s);
 
 	if (f)
-		return(f(ap, params));
+		return (f(ap, params));
+	return (0);
 }
 
 /**
@@ -68,7 +68,7 @@ int get_flag(char *s, params_t *params)
 {
 	int i = 0;
 
-	switch(*s)
+	switch (*s)
 	{
 		case '+':
 			i = params->plus_flag = 1;
